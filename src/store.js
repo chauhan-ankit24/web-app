@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import matchesReducer from './redux/slices/matchesSlice';
+import matchesReducer from './redux/matchesSlice';
 
 const store = configureStore({
   reducer: {

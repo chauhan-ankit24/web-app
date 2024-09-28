@@ -3,9 +3,10 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="flex justify-center items-center min-h-screen bg-gray-900 ">
       {/* Mobile screen container */}
-      <div className="w-[375px] max-h-screen relative overflow-hidden">
+      <div className="w-[96vw] h-[90vh] max-h-screen bg-black shadow-lg relative overflow-hidden md:w-[390px] md:h-[844px] rounded-xl">
+        {/* Your App Content */}
         <Home />
       </div>
     </div>

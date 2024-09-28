@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setSearchQuery } from '../redux/slices/matchesSlice';
+import { setSearchQuery } from '../redux/matchesSlice';
 
 const SearchBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);

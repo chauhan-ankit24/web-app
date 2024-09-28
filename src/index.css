@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* Centering the mobile view on the screen with fixed dimensions */
-.mobile-container {
-    width: 90%;
-    height: 99vh;
-    overflow: hidden;
-    /* Prevents footer or header from being pushed off-screen */
-    /* border: 1px solid #ccc; */
-    border-radius: 15px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Ensure header and footer stay fixed at the top and bottom */
 header {
     /* position: fixed; */
@@ -28,13 +13,19 @@ header {
 }
 
 footer {
-    /* position: fixed; */
+    /* Remove position fixed */
     bottom: 0;
     left: 0;
     right: 0;
-    /* height: 60px; */
-    z-index: 10;
+    /* Optional styling */
+    height: 80px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 /* Ensure the app scales correctly on mobile screens */
 @media (max-width: 600px) {
