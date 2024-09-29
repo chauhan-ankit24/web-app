@@ -1,20 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import { FaBars, FaTimes, FaRegUser, FaCog, FaQuestionCircle, FaSignOutAlt, FaListUl } from 'react-icons/fa';
 import SearchBar from './SearchBar';
-import menuSound from '../assets/menu.mp3'; // Ensure this path is correct based on your project structure
-import { motion } from 'framer-motion'; // Import Framer Motion
+import menuSound from '../assets/menu.mp3';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const menuRef = useRef(null);
-  
+
   const toggleMenu = () => {
     if (navigator.vibrate) {
       navigator.vibrate(50); // Vibration feedback for 50ms
     }
-    
+
     // Play sound
     const audio = new Audio(menuSound);
+    audio.volume = 0.1; // Set the volume (0.0 to 1.0)
     audio.play();
 
     setIsMenuOpen((prev) => !prev);
@@ -34,7 +35,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="flex justify-between p-2 items-center bg-black text-white shadow-md relative">
+    <header className="flex justify-between p-2 items-center bg-black text-white shadow-md relative z-50">
       {/* Profile Image */}
       <div className="profile-image rounded-full w-10 h-10 overflow-hidden">
         <img 
@@ -57,8 +58,8 @@ const Header = () => {
         ref={menuRef}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: isMenuOpen ? 1 : 0, scale: isMenuOpen ? 1 : 0.8 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={`absolute top-12 right-2 bg-gray-800 text-white rounded-md shadow-lg transition-all duration-300 ease-in-out`}
+        transition={{ duration: 0.2, ease: 'easeInOut' }}
+        className={`absolute top-full right-2 bg-gray-800 text-white rounded-md shadow-lg z-50 transition-all`}
         style={{ transformOrigin: 'top right' }}
       >
         <ul className="p-2">

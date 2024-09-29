@@ -13,9 +13,10 @@ const MatchCard = ({ teamA, teamB, date, time, price, venue }) => {
             whileTap={{ scale: 0.90 }}
         >
             {/* Price Tag */}
-            <div className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black font-bold px-1 py-0 rounded-full shadow-md">
+            <div className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black font-bold px-1 py-0 rounded-full shadow-md text-sm md:text-base lg:text-base">
                 {'$ ' + price + ' USD'}
             </div>
+
 
             <motion.div
                 className="flex justify-between items-center w-full space-x-4"

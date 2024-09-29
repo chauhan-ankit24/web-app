@@ -2,18 +2,21 @@ import React from 'react';
 import MatchCard from './MatchCard';
 import { useSelector } from 'react-redux';
 
-
+// Helper function to group matches by date
+const groupMatchesByDate = (matches) => {
+  return matches.reduce((acc, match) => {
+    acc[match.date] = acc[match.date] || [];
+    acc[match.date].push(match);
+    return acc;
+  }, {});
+};
 
 const MatchesList = () => {
   const filteredItems = useSelector((state) => state.search.filteredItems);
-  // const matches = generateMatches();
   const groupedMatches = groupMatchesByDate(filteredItems);
 
   return (
     <div className="relative flex-grow flex flex-col">
-      {/* Top Separator Line */}
-      <div className="h-1 bg-white w-full mb-4" /> {/* White line for separation */}
-      
       {/* Buttons Container */}
       <div className="flex justify-center m-4">
         {['Upcoming', '🟡  LIVE', 'Completed'].map(label => (
@@ -60,13 +63,6 @@ const MatchesList = () => {
   );
 };
 
-// Helper function to group matches by date
-const groupMatchesByDate = (matches) => {
-  return matches.reduce((acc, match) => {
-    acc[match.date] = acc[match.date] || [];
-    acc[match.date].push(match);
-    return acc;
-  }, {});
-};
+
 
 export default MatchesList;

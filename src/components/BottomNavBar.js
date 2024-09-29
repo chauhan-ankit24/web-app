@@ -10,7 +10,7 @@ const BottomNavBar = ({ onNavClick }) => {
   };
 
   return (
-    <footer className="bg-black  text-white p-2 flex justify-around bottom-0 left-0 right-0">
+    <footer className="bg-black text-white p-2 flex justify-around bottom-0 left-0 right-0">
       {/* Matches Button */}
       <button
         onClick={() => handleNavClick('matches')}
