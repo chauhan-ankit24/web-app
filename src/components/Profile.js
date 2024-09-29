@@ -42,14 +42,14 @@ const Profile = () => {
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                         className="mt-2 text-white text-gray-600"
                     >
-                        Passionate software engineer with a focus on web development. Skilled in JavaScript, React, and Node.js.
+                        Passionate software engineer with a focus on web development.
                     </motion.p>
                 </div>
                 
                 <div className="mt-6">
                     <h3 className="text-lg text-white font-semibold text-gray-700">Contact Information</h3>
                     <motion.div
-                        initial={{ x: 100, opacity: 0 }}
+                        initial={{ x: -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.9, ease: 'easeOut' }}
                         className="mt-2 text-white flex items-center text-gray-600"
@@ -58,7 +58,7 @@ const Profile = () => {
                         <p>Email: realankit108@gmail.com</p>
                     </motion.div>
                     <motion.div
-                        initial={{ x: 100, opacity: 0 }}
+                        initial={{ x: -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, ease: 'easeOut' }}
                         className="mt-1 text-white flex items-center text-gray-600"

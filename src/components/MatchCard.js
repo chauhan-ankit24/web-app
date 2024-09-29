@@ -8,15 +8,14 @@ const MatchCard = ({ teamA, teamB, date, time, price, venue }) => {
             className="relative bg-gray-900 rounded-lg shadow-lg p-2 flex flex-col items-center space-y-4 border border-gray-200 border-t-[10px]"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)' }}
             whileTap={{ scale: 0.90 }}
         >
             {/* Price Tag */}
-            <div className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black font-bold px-1 py-0 rounded-full shadow-md text-sm md:text-base lg:text-base">
+            <div className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black font-bold px-1 py-0 rounded-full shadow-md text-sm md:text-base lg:text-[15px]">
                 {'$ ' + price + ' USD'}
             </div>
-
 
             <motion.div
                 className="flex justify-between items-center w-full space-x-4"
