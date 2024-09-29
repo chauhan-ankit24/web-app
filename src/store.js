@@ -1,10 +1,11 @@
+// src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import matchesReducer from './redux/matchesSlice';
+import matchesReducer from './redux/slices/matchesSlice';
 
 const store = configureStore({
   reducer: {
-    matches: matchesReducer,
-  },
+    search: matchesReducer,
+  }
 });
 
 export default store;

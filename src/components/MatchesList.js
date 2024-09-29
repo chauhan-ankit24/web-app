@@ -1,43 +1,13 @@
 import React from 'react';
 import MatchCard from './MatchCard';
+import { useSelector } from 'react-redux';
 
-const generateMatches = () => {
-  const matches = [];
-  
-  // Specifying matches for each date
-  const matchData = [
-    { date: new Date(2024, 9, 1), count: 3 }, // 3 matches on October 1
-    { date: new Date(2024, 9, 2), count: 2 }, // 2 matches on October 2
-    { date: new Date(2024, 9, 3), count: 1 }, // 1 match on October 3
-    { date: new Date(2024, 9, 4), count: 2 }, // 2 matches on October 4
-    { date: new Date(2024, 9, 5), count: 1 }, // 1 match on October 5
-    { date: new Date(2024, 9, 6), count: 2 }, // 2 matches on October 6
-    { date: new Date(2024, 9, 7), count: 3 }, // 3 matches on October 7
-    { date: new Date(2024, 9, 8), count: 2 }, // 2 matches on October 8
-    { date: new Date(2024, 9, 9), count: 1 }, // 1 match on October 9
-  ];
 
-  let matchId = 1; // To assign unique IDs to matches
-
-  matchData.forEach(({ date, count }) => {
-    for (let i = 0; i < count; i++) {
-      matches.push({
-        id: matchId++,
-        teamA: `TA${matchId}`, // Short names
-        teamB: `TB${matchId}`,
-        date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), // Format as "Mon Day"
-        time: '16:30', // 24-hour format
-        price: (matchId) * 10 + 5, 
-      });
-    }
-  });
-
-  return matches;
-};
 
 const MatchesList = () => {
-  const matches = generateMatches();
-  const groupedMatches = groupMatchesByDate(matches);
+  const filteredItems = useSelector((state) => state.search.filteredItems);
+  // const matches = generateMatches();
+  const groupedMatches = groupMatchesByDate(filteredItems);
 
   return (
     <div className="relative flex-grow flex flex-col">

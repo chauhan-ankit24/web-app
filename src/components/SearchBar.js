@@ -1,15 +1,17 @@
+// SearchBar.js
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setSearchQuery } from '../redux/matchesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setQuery, filterItems } from '../redux/slices/matchesSlice';
 
 const SearchBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [input, setInput] = useState('');
   const dispatch = useDispatch();
+  const query = useSelector((state) => state.search.query);
 
-  const handleSearch = (e) => {
-    setInput(e.target.value);
-    dispatch(setSearchQuery(e.target.value));
+  const handleSearch = (event) => {
+    const newQuery = event.target.value;
+    dispatch(setQuery(newQuery));
+    dispatch(filterItems()); // Dispatch the filter action to update the filtered list
   };
 
   return (
@@ -17,8 +19,9 @@ const SearchBar = () => {
       <div className={`search-bar transition-all ${isExpanded ? 'w-full' : 'w-12'} bg-gray-200 rounded-full`}>
         {isExpanded ? (
           <input
-            className="w-full p-2"
-            value={input}
+            type="text"
+            className="w-full p-2 text-black"
+            value={query}
             onChange={handleSearch}
             placeholder="Search teams or dates"
           />
